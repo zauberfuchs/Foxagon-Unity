@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Obstacle
+  - FinishingLine
+  - JumpPlatform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Doodads
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1187294199
+    locked: 0
+  - name: Water
+    uniqueID: 1225433151
+    locked: 0
+  - name: Ground
+    uniqueID: 1754942751
+    locked: 0
+  - name: Doodads
+    uniqueID: 4233039623
+    locked: 0
+  - name: Player
+    uniqueID: 2860619209
+    locked: 0

@@ -22055,10 +22055,10 @@ GameObject:
   - component: {fileID: 1015241035}
   - component: {fileID: 1015241034}
   - component: {fileID: 1015241033}
+  - component: {fileID: 1015241030}
   - component: {fileID: 1015241032}
   - component: {fileID: 1015241037}
   - component: {fileID: 1015241031}
-  - component: {fileID: 1015241030}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -22075,7 +22075,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1015241029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e6cbfe9a731c39489512e1aa1836f0c, type: 3}
+  m_Script: {fileID: 11500000, guid: b3e485a4311023349afe2075e6880705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10

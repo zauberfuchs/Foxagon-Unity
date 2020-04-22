@@ -36,7 +36,7 @@ public class PlayerDeathScript : MonoBehaviour {
             this.transform.localScale = scale;
 			this.GetComponent<Rigidbody2D>().gravityScale = gScale;
             this.GetComponent<PlayerProgressScript>().bestProgressText.color = new Color(0, 0, 0, 0);
-            this.GetComponent<Rigidbody2D>().velocity = new Vector3(this.GetComponent<Jump2D>().playerSpeed,0,0);
+            this.GetComponent<Rigidbody2D>().velocity = new Vector3(this.GetComponent<PlayerJump2D>().playerSpeed,0,0);
             deathText.color = new Color(0, 0, 0, 0);
             canRestart = 10000000000000f;
 			GameObject.Find ("Destroy").SetActive (false);

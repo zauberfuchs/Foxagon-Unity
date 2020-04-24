@@ -16,7 +16,6 @@ public class PlayerFinishScript : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("FinishingLine"))
         {
-            Debug.Log("finished");
             finishText.color = new Color(1, 1, 1, 1);
             finishText.text = "Level Completed!";
             if(MyVariableStorage.hasBeenPaused || MyVariableStorage.hasBeenSaved)

@@ -39,6 +39,7 @@ public class PlayerJump2D : MonoBehaviour
         }
         // Using a Raycast to determine, if my Player is on the a ground
         hit = Physics2D.Raycast(transform.position, Vector2.down, GetComponent<BoxCollider2D>().size.y / 2 + 0.21f);
+        Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 0.21f, 0));
         if (hit.collider != null && !MyVariableStorage.performsRestart)
         {
 
@@ -59,25 +60,22 @@ public class PlayerJump2D : MonoBehaviour
 
             // Cause to Strange Behaviors on ground the cube does only sets him plane to 99% the last 1% sometimes bugs.
             // so i manually set him plane
-            if(transform.rotation.eulerAngles.z % 90 != 0)
-            {
-                Debug.Log(transform.rotation.eulerAngles.z % 90);
-                if (transform.rotation.eulerAngles.z % 90 <= 1)
-                {
-                    Debug.Log("new z1");
-                    a = -(transform.rotation.eulerAngles.z % 90);
-                    transform.Rotate(0, 0, a);
-
-                }
-                else if ((transform.rotation.eulerAngles.z + 1) % 90 <= 1)
-                {
-                    Debug.Log("new z2");
-                    a = -((transform.rotation.eulerAngles.z + 1) % 90);
-                    transform.Rotate(0, 0, a);
-                }
-            }
 
 
+            //if(transform.rotation.eulerAngles.z % 90 != 0)
+            //{
+            //    if (transform.rotation.eulerAngles.z % 90 <= 1)
+            //    {
+            //        a = -(transform.rotation.eulerAngles.z % 90);
+            //        transform.Rotate(0, 0, a);
+
+            //    }
+            //    else if ((transform.rotation.eulerAngles.z + 1) % 90 <= 1)
+            //    {
+            //        a = -((transform.rotation.eulerAngles.z + 1) % 90);
+            //        transform.Rotate(0, 0, a);
+            //    }
+            //}
 
 
         }

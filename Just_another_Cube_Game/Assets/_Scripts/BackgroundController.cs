@@ -6,16 +6,16 @@ public class BackgroundController : MonoBehaviour {
 
    // public   GameObject  player;
 
-    public   float       speed = 0;
-    public   float       xOffset;
-    public   float       yOffset;
-    public   float       zOffset;
+    public      float       speed = 0;
+    public      float       xOffset;
+    public      float       yOffset;
+    public      float       zOffset;
+    public      Rigidbody2D playerRB;
+
+	public      string 	    SortingLayerName;
 
 
-	public   string 	 SortingLayerName;
-
-
-    private  Rigidbody   rb;
+    private     Rigidbody   rb;
 
     void Start()
     {

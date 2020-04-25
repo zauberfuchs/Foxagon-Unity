@@ -270,6 +270,11 @@ PrefabInstance:
       propertyPath: playerRB
       value: 
       objectReference: {fileID: 1015241037}
+    - target: {fileID: 114145115155622012, guid: 050e149345b9d2b4e939e3863e3cec55,
+        type: 3}
+      propertyPath: yOffset
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 050e149345b9d2b4e939e3863e3cec55, type: 3}
 --- !u!114 &73622301 stripped
@@ -319,7 +324,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.7
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 1f4d9a68f7abc4463fa00a49070f4ffcc99581aa
+  m_ApplyToSortingLayers: 1f4d9a68f7abc4463fa00a49070f4ffcc99581aa0dcc6b86
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -5622,6 +5627,16 @@ PrefabInstance:
     - target: {fileID: 4021889723200838, guid: 9899f916f8e14f34ea327ede62948524, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 23212445225897614, guid: 9899f916f8e14f34ea327ede62948524,
+        type: 3}
+      propertyPath: m_ProbeAnchor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 23212445225897614, guid: 9899f916f8e14f34ea327ede62948524,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114375980607282834, guid: 9899f916f8e14f34ea327ede62948524,
         type: 3}
@@ -12588,6 +12603,31 @@ PrefabInstance:
       propertyPath: m_FOVAxisMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20797469739964200, guid: d40239d6a8f698347a5d760c11688b31,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20797469739964200, guid: d40239d6a8f698347a5d760c11688b31,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 20797469739964200, guid: d40239d6a8f698347a5d760c11688b31,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.20000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 20797469739964200, guid: d40239d6a8f698347a5d760c11688b31,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.21176472
+      objectReference: {fileID: 0}
+    - target: {fileID: 95604309199267820, guid: d40239d6a8f698347a5d760c11688b31,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114357607090320928, guid: d40239d6a8f698347a5d760c11688b31,
         type: 3}
       propertyPath: player
@@ -12617,6 +12657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086498206291412262, guid: d40239d6a8f698347a5d760c11688b31,
+        type: 3}
+      propertyPath: m_VolumeLayerMask.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d40239d6a8f698347a5d760c11688b31, type: 3}
@@ -12736,7 +12781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343138842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 466934870}
@@ -13224,7 +13269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418819422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 466934870}
@@ -15504,7 +15549,7 @@ TilemapCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.15}
+  m_Offset: {x: 0, y: 0.2}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
 --- !u!483693784 &2135687446
@@ -15854,17 +15899,17 @@ PrefabInstance:
     - target: {fileID: 114247423828011234, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114354928145996104, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114622529150916498, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114644552717805050, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
@@ -15874,7 +15919,7 @@ PrefabInstance:
     - target: {fileID: 114644552717805050, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114754332422947204, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
@@ -15884,7 +15929,7 @@ PrefabInstance:
     - target: {fileID: 114754332422947204, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114857749563417264, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
@@ -15894,7 +15939,7 @@ PrefabInstance:
     - target: {fileID: 114857749563417264, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114945273084860942, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
@@ -15904,7 +15949,7 @@ PrefabInstance:
     - target: {fileID: 114945273084860942, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224295255940398164, guid: 58cb89263fe29544384eb258af272d59,
         type: 3}

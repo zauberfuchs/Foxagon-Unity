@@ -14,6 +14,8 @@ public class BackgroundController : MonoBehaviour {
 
 	public      string 	    SortingLayerName;
 
+    private     float       increment = 0.001f;
+
 
     private     Rigidbody   rb;
 
@@ -28,7 +30,23 @@ public class BackgroundController : MonoBehaviour {
         if (GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity.x > 0)
         {
             GetComponent<Renderer>().material.mainTextureOffset = new Vector2(Time.time * speed, 0f);
-            rb.transform.position = new Vector3(GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.x + xOffset, yOffset, zOffset);
+
+            if(SortingLayerName == "Background_Moon" && (transform.position.y - GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.y) <= 8.5)
+            {
+                rb.transform.position = new Vector3(GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.x + xOffset
+                    , transform.position.y + increment
+                    , zOffset);
+            }else if (SortingLayerName == "Background_Moon" && (transform.position.y - GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.y) > 8.5)
+            {
+                rb.transform.position = new Vector3(GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.x + xOffset
+                    , transform.position.y - increment
+                    , zOffset);
+            }
+            else
+            {
+                rb.transform.position = new Vector3(GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.x + xOffset, yOffset, zOffset);
+            }
+
         }
     }
 }

@@ -33,12 +33,12 @@ public class CameraController : MonoBehaviour {
         rb.transform.position = new Vector3(GameObject.Find("Player").GetComponent<Rigidbody2D>().transform.position.x + 5, CameraY, CameraZ);
         if (player.transform.position.y - CameraY > 0.5)
         {
-            CameraY += 0.1f;
+            CameraY += 0.02f;
         }
 
         if (CameraY - player.transform.position.y > 3.5)
         {
-            CameraY -= 0.1f;
+            CameraY -= 0.02f;
         }
         if(MyVariableStorage.performsRestart)
         {

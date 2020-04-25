@@ -14,6 +14,7 @@ public class PlayerJump2D : MonoBehaviour
     private Vector2                             vel;
     private ParticleSystem.EmissionModule       e;
     private float                               a;
+    private Vector3                             unroundedRotation;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class PlayerJump2D : MonoBehaviour
         }
         // Using a Raycast to determine, if my Player is on the a ground
         hit = Physics2D.Raycast(transform.position, Vector2.down, GetComponent<BoxCollider2D>().size.y / 2 + 0.21f);
-        Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 0.21f, 0));
+       // Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 0.21f, 0));
         if (hit.collider != null && !MyVariableStorage.performsRestart)
         {
 
@@ -62,20 +63,23 @@ public class PlayerJump2D : MonoBehaviour
             // so i manually set him plane
 
 
-            //if(transform.rotation.eulerAngles.z % 90 != 0)
-            //{
-            //    if (transform.rotation.eulerAngles.z % 90 <= 1)
-            //    {
-            //        a = -(transform.rotation.eulerAngles.z % 90);
-            //        transform.Rotate(0, 0, a);
-
-            //    }
-            //    else if ((transform.rotation.eulerAngles.z + 1) % 90 <= 1)
-            //    {
-            //        a = -((transform.rotation.eulerAngles.z + 1) % 90);
-            //        transform.Rotate(0, 0, a);
-            //    }
-            //}
+            if (transform.rotation.eulerAngles.z % 90 != 0)
+            {
+                unroundedRotation = transform.rotation.eulerAngles;
+                unroundedRotation.z = Mathf.Round(unroundedRotation.z);
+                transform.eulerAngles = unroundedRotation;
+                //if (transform.rotation.eulerAngles.z % 90 <= 1)
+                //{
+                //    a = -(transform.rotation.eulerAngles.z % 90);
+                //    transform.Rotate(0, 0, a);
+                //    transform.rotation.eulerAngles.z = 2f;
+                //}
+                //else if ((transform.rotation.eulerAngles.z + 1) % 90 <= 1)
+                //{
+                //    a = -((transform.rotation.eulerAngles.z + 1) % 90);
+                //    transform.Rotate(0, 0, a);
+                //}
+            }
 
 
         }

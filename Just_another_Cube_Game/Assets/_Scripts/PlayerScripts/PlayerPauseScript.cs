@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerPauseScript : MonoBehaviour {
 
-	public Text pauseText;
+	public TMP_Text pauseText;
 
 	private bool gamePaused;
 	private float savedTimeScale;

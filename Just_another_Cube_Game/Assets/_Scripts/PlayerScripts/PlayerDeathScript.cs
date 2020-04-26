@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerDeathScript : MonoBehaviour {
 
-	public 	 Text 			deathText;
+	public TMP_Text deathText;
 
 	[SerializeField]
 	private  float 			canRestart = 10000000000000f;

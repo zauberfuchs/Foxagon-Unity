@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class PlayerJump2D : MonoBehaviour
 {
+    [Header("Movement")]
+    [SerializeField] public float               playerSpeed;
+    [SerializeField] float                      jumpHeight;
 
-    public  float                               playerSpeed;
-    public  float                               jumpHeight;
-    public  ParticleSystem                      ps;
+    [Header("Trail")]
+    [SerializeField] ParticleSystem             trailParticleSystem;
 
-    private Rigidbody2D                         rb;
+    private Rigidbody2D                         playerRigidbody;
+    private BoxCollider2D                       playerCollider;
+    private LayerMask                           tileMap;
+
     private RaycastHit2D                        hit;
+    private bool                                isGrounded { get; set; }
     private Vector2                             vel;
-    private ParticleSystem.EmissionModule       e;
-    private float                               a;
+    private ParticleSystem.EmissionModule       particleSystemEmissionModule;
     private Vector3                             unroundedRotation;
 
     void Start()
     {
-        e = ps.emission;
-        rb = GetComponent<Rigidbody2D>();
-
+        particleSystemEmissionModule = trailParticleSystem.emission;
+        playerRigidbody = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
+        tileMap = LayerMask.GetMask("Tilemap");
 
     }
     // The Physics Calculations, which let's my Player Jump and Rotating
@@ -34,27 +40,28 @@ public class PlayerJump2D : MonoBehaviour
         // Makes sure no restart is being performed
         if (!MyVariableStorage.performsRestart)
         {
-            Vector2 vel = rb.velocity;
+            Vector2 vel = playerRigidbody.velocity;
             vel.x = playerSpeed;
-            rb.velocity = vel;
+            playerRigidbody.velocity = vel;
         }
+        if(playerCollider.IsTouchingLayers(tileMap) && !MyVariableStorage.performsRestart)
         // Using a Raycast to determine, if my Player is on the a ground
-        hit = Physics2D.Raycast(transform.position, Vector2.down, GetComponent<BoxCollider2D>().size.y / 2 + 0.21f);
-       // Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 0.21f, 0));
-        if (hit.collider != null && !MyVariableStorage.performsRestart)
+        //hit = Physics2D.Raycast(transform.position, Vector2.down, GetComponent<BoxCollider2D>().size.y / 2 + 0.21f);
+        //Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 0.21f, 0));
+        //if (hit.collider != null && !MyVariableStorage.performsRestart)
         {
 
             // Unfreezing the X and Y Rotations because we are on ground!
-            rb.constraints = RigidbodyConstraints2D.None;
+            playerRigidbody.constraints = RigidbodyConstraints2D.None;
 
             // Jumps if you press the "Space" key
             if (Input.GetKey(KeyCode.Space))
             {
                 // Resetting my Jump Velocity to prevent that i add another Velocity in Y direction 
                 // on top of my Jump before the Gravity fully done its job
-                rb.velocity = new Vector2(rb.velocity.x, 0);
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
                 // My Jump Height
-                rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
             }
 
 
@@ -89,19 +96,19 @@ public class PlayerJump2D : MonoBehaviour
             // Freezing all my Rotations in X,Y,Z Axis to prevent strange physics behavior
             
             transform.Rotate(Vector3.back * 1.535f);
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            playerRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        e.enabled = true;
+        particleSystemEmissionModule.enabled = true;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        e.enabled = false;
+        particleSystemEmissionModule.enabled = false;
     }
 
 }

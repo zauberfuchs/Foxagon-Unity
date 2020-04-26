@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerFinishScript : MonoBehaviour {
 
-	public Text finishText;
+	public TMP_Text finishText;
 
 	void Start () 
 	{

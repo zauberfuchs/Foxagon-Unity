@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerAttemptScript : MonoBehaviour {
 
-	public Text attemptText;
+	public TMP_Text attemptText;
 
 	void Start () 
 	{

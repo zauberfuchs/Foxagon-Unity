@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerProgressScript : MonoBehaviour {
 
-	public 	 Text 	 progressText;
-	public 	 Text 	 bestProgressText;
+	public	 TMP_Text progressText;
+	public	 TMP_Text bestProgressText;
 
 	[SerializeField]
 	private  float 	 xCordFinish;

@@ -6,7 +6,7 @@ public class PlayerJump2D : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] public float               playerSpeed;
-    [SerializeField] float                      jumpHeight;
+    [SerializeField] float                      playerJumpHeight;
 
     [Header("Trail")]
     [SerializeField] ParticleSystem             trailParticleSystem;
@@ -17,6 +17,8 @@ public class PlayerJump2D : MonoBehaviour
 
     private RaycastHit2D                        hit;
     private bool                                isGrounded { get; set; }
+    private bool                                isJumping { get; set; }
+    private bool                                jumpInput;
     private Vector2                             vel;
     private ParticleSystem.EmissionModule       particleSystemEmissionModule;
     private Vector3                             unroundedRotation;
@@ -29,9 +31,18 @@ public class PlayerJump2D : MonoBehaviour
         tileMap = LayerMask.GetMask("Tilemap");
 
     }
+
+    void Update()
+    {
+        var keyboard = Keyboard.current;
+        if (!isJumping && isGrounded && .spaceKey.wasPressedThisFrame)
+            jumpInput = true;
+
+    }
     // The Physics Calculations, which let's my Player Jump and Rotating
     void FixedUpdate()
     {
+
 
         // Debug.Log(GetComponent<RectTransform>().localRotation.z % 90);
         // Saving the currently Velocity from the Player into an Vector3 variable
@@ -50,18 +61,21 @@ public class PlayerJump2D : MonoBehaviour
         //Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 0.21f, 0));
         //if (hit.collider != null && !MyVariableStorage.performsRestart)
         {
-
+            isGrounded = true;
+            isJumping = playerRigidbody.velocity.y > 0.0f ? true : false;
             // Unfreezing the X and Y Rotations because we are on ground!
             playerRigidbody.constraints = RigidbodyConstraints2D.None;
 
             // Jumps if you press the "Space" key
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) && !isJumping)
             {
                 // Resetting my Jump Velocity to prevent that i add another Velocity in Y direction 
                 // on top of my Jump before the Gravity fully done its job
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
                 // My Jump Height
-                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, jumpHeight);
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, playerJumpHeight);
+                isJumping = true;
+                isGrounded = false;
             }
 
 
@@ -100,6 +114,15 @@ public class PlayerJump2D : MonoBehaviour
         }
     }
 
+    private void updateVelocity()
+    {
+
+    }
+
+    private void updateJump()
+    {
+
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

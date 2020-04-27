@@ -16804,6 +16804,10 @@ PrefabInstance:
       propertyPath: trailParticleSystem
       value: 
       objectReference: {fileID: 238574517}
+    - target: {fileID: 1015241030, guid: 58cb89263fe29544384eb258af272d59, type: 3}
+      propertyPath: playerJumpHeight
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 1015241031, guid: 58cb89263fe29544384eb258af272d59, type: 3}
       propertyPath: m_Material
       value: 
